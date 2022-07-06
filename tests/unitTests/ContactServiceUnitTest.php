@@ -28,20 +28,44 @@ final class ContactServiceUnitTest extends TestCase {
     }
 
     public function testCreationContactWithoutAnyText() {
+        $contact = new contacts();
+        $this->expectException(invalidInputException::class);
+        $this->expectExceptionMessage('renseignez le nom et le prenom svp');
+        $contact->createContact('', '');
     }
 
     public function testCreationContactWithoutPrenom() {
+        $contact = new contacts();
+        $this->expectException(invalidInputException::class);
+        $this->expectExceptionMessage('renseignez le nom et le prenom svp');
+        $contact->createContact('nom', '');
     }
 
     public function testCreationContactWithoutNom() {
+        $contact = new contacts();
+        $this->expectException(invalidInputException::class);
+        $this->expectExceptionMessage('renseignez le nom et le prenom svp');
+        $contact->createContact('', 'prenom');
     }
 
     public function testSearchContactWithNumber() {
+        $contact = new contacts();
+        $this->expectException(invalidInputException::class);
+        $this->expectExceptionMessage('Veuillez spécifier une recherche');
+        $contact->searchContact(0);
     }
 
     public function testModifyContactWithInvalidId() {
+        $contact = new contacts();
+        $this->expectException(invalidInputException::class);
+        $this->expectExceptionMessage("l'id doit être un entier non nul");
+        static::assertTrue($contact->updateContact(-456, 'ff', 'ff'));
     }
 
     public function testDeleteContactWithTextAsId() {
+        $contact = new contacts();
+        $this->expectException(invalidInputException::class);
+        $this->expectExceptionMessage("l'id doit être un entier non nul");
+        $contact->deleteContact('efdofod');
     }
 }
