@@ -21,17 +21,19 @@ require __DIR__.'/../../src/ContactService.php';
  */
 final class ContactServiceIntegrationTest extends TestCase
 {
+
+    
     private $contactService;
 
     public function __construct(string $name = null, array $data = [], $dataName = '') {
         parent::__construct($name, $data, $dataName);
-        $this->contactService = new ContactService();
+        $this->contact = new ContactService();
     }
 
     public function testInit()
     {
         // $this->createDB();
-        $this->contact = new contacts();
+        $this->contact = new ContactService();
         static::assertTrue($this->contact->init('contactsTest.sqlite'));
     }
 
@@ -51,7 +53,7 @@ final class ContactServiceIntegrationTest extends TestCase
     public function Init()
     {
         // $this->createDB();
-        $this->contact = new contacts();
+        $this->contact = new ContactService();
         $this->contact->init('contactsTest.sqlite');
     }
 

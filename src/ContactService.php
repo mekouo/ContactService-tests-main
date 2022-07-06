@@ -25,6 +25,8 @@ class ContactService {
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+
+
     /**
      * permet de de renvoyer les détails d'un contact
      * @param $id l'identifiant du contact recherché
